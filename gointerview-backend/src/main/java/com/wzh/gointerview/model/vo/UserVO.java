@@ -5,10 +5,9 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 用户视图（脱敏）
+ * User view object class
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/hhhhhunger98">wzh</a>
  */
 @Data
 public class UserVO implements Serializable {

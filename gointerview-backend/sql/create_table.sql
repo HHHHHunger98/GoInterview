@@ -51,7 +51,7 @@ create table if not exists question
     index idx_userId(userId)
 ) comment 'question' collate = utf8mb4_unicode_ci;
 
-create table if not exists question_question_bank
+create table if not exists question_bank_question
 (
     id bigint auto_increment comment 'id' primary key,
     questionBankId bigint not null comment 'question bank id',

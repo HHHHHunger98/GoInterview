@@ -1,24 +1,18 @@
 package com.wzh.gointerview.model.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
 /**
- * 用户
- *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * user
+ * @TableName user
  */
-@TableName(value = "user")
+@TableName(value ="user")
 @Data
 public class User implements Serializable {
-
     /**
      * id
      */
@@ -26,58 +20,55 @@ public class User implements Serializable {
     private Long id;
 
     /**
-     * 用户账号
+     * account
      */
     private String userAccount;
 
     /**
-     * 用户密码
+     * password
      */
     private String userPassword;
 
     /**
-     * 开放平台id
+     * third party login id
      */
-    private String unionId;
+    private String subId;
 
     /**
-     * 公众号openId
-     */
-    private String mpOpenId;
-
-    /**
-     * 用户昵称
+     * name
      */
     private String userName;
 
     /**
-     * 用户头像
+     * avatar
      */
     private String userAvatar;
 
     /**
-     * 用户简介
+     * profile
      */
     private String userProfile;
 
     /**
-     * 用户角色：user/admin/ban
+     * user role: user/admin
      */
     private String userRole;
 
     /**
-     * 创建时间
+     * last edited time
+     */
+    private Date editTime;
+
+    /**
+     * created time
      */
     private Date createTime;
 
     /**
-     * 更新时间
+     * last updated time
      */
     private Date updateTime;
 
-    /**
-     * 是否删除
-     */
     @TableLogic
     private Integer isDelete;
 
