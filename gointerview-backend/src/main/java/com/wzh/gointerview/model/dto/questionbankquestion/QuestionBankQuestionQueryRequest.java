@@ -21,6 +21,11 @@ public class QuestionBankQuestionQueryRequest extends PageRequest implements Ser
     private Long id;
 
     /**
+     * query exclude by id
+     */
+    private Long notId;
+
+    /**
      * question bank id
      */
     private Long questionBankId;

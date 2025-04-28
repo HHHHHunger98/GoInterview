@@ -4,7 +4,7 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 用户创建请求
+ * Add new user request
  *
  * @author <a href="https://github.com/hhhhhunger98">wzh</a>
  * 
@@ -13,22 +13,22 @@ import lombok.Data;
 public class UserAddRequest implements Serializable {
 
     /**
-     * 用户昵称
+     * User name
      */
     private String userName;
 
     /**
-     * 账号
+     * User account
      */
     private String userAccount;
 
     /**
-     * 用户头像
+     * User avatar
      */
     private String userAvatar;
 
     /**
-     * 用户角色: user, admin
+     * User role: user, admin
      */
     private String userRole;
 

@@ -21,6 +21,16 @@ public class QuestionBankQueryRequest extends PageRequest implements Serializabl
     private Long id;
 
     /**
+     * query exclude by question bank id
+     */
+    private Long notId;
+
+    /**
+     * query by searching text
+     */
+    private String searchText;
+
+    /**
      * query by question bank title
      */
     private String title;
@@ -29,11 +39,6 @@ public class QuestionBankQueryRequest extends PageRequest implements Serializabl
      * query by the question bank description
      */
     private String description;
-
-    /**
-     * query by the question bank picture
-     */
-    private String picture;
 
     /**
      * query by the creator id

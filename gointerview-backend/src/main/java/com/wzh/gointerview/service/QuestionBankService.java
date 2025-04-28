@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.wzh.gointerview.model.dto.questionbank.QuestionBankQueryRequest;
 import com.wzh.gointerview.model.entity.QuestionBank;
-import com.wzh.gointerview.model.entity.QuestionBank;
 import com.wzh.gointerview.model.vo.QuestionBankVO;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +33,7 @@ public interface QuestionBankService extends IService<QuestionBank> {
      * @param questionBankQueryRequest
      * @return
      */
-    Page<QuestionBank> searchFromEs(QuestionBankQueryRequest questionBankQueryRequest);
+    //Page<QuestionBank> searchFromEs(QuestionBankQueryRequest questionBankQueryRequest);
 
     /**
      * get question bank view object class

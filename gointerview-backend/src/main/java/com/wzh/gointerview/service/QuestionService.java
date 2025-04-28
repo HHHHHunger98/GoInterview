@@ -33,7 +33,7 @@ public interface QuestionService extends IService<Question> {
      * @param questionQueryRequest
      * @return
      */
-    Page<Question> searchFromEs(QuestionQueryRequest questionQueryRequest);
+    //Page<Question> searchFromEs(QuestionQueryRequest questionQueryRequest);
 
     /**
      * get question view class

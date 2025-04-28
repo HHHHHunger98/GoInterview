@@ -114,3 +114,284 @@ create table if not exists question_question_bank
 ) comment 'question and question bank relationship' collate = utf8mb4_unicode_ci;
 ```
 
+### Backend development
+
+#### Models
+
+> Entity Classes
+
+We have three entities
+1. user
+2. question
+3. question bank
+
+And one relationship
+1. question bank question
+
+Based on the database tables, the entity classes should contain the desired data fields.
+
+1. User
+```java
+/**
+ * user
+ * @TableName user
+ */
+@TableName(value ="user")
+@Data
+public class User implements Serializable {
+    /**
+     * id
+     */
+    @TableId(type = IdType.ASSIGN_ID)
+    private Long id;
+
+    /**
+     * account
+     */
+    private String userAccount;
+
+    /**
+     * password
+     */
+    private String userPassword;
+
+    /**
+     * third party login id
+     */
+    private String subId;
+
+    /**
+     * name
+     */
+    private String userName;
+
+    /**
+     * avatar
+     */
+    private String userAvatar;
+
+    /**
+     * profile
+     */
+    private String userProfile;
+
+    /**
+     * user role: user/admin
+     */
+    private String userRole;
+
+    /**
+     * last edited time
+     */
+    private Date editTime;
+
+    /**
+     * created time
+     */
+    private Date createTime;
+
+    /**
+     * last updated time
+     */
+    private Date updateTime;
+
+    @TableLogic
+    private Integer isDelete;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+}
+```
+2. Question
+```java
+/**
+ * question
+ * @TableName question
+ */
+@TableName(value ="question")
+@Data
+public class Question implements Serializable {
+    /**
+     * id
+     */
+    @TableId(type = IdType.ASSIGN_ID)
+    private Long id;
+
+    /**
+     * question title
+     */
+    private String title;
+
+    /**
+     * question content
+     */
+    private String content;
+
+    /**
+     * tag list(JSON Array)
+     */
+    private String tags;
+
+    /**
+     * answer to question
+     */
+    private String answer;
+
+    /**
+     * the creator id
+     */
+    private Long userId;
+
+    /**
+     * last edited time
+     */
+    private Date editTime;
+
+    /**
+     * created time
+     */
+    private Date createTime;
+
+    /**
+     * last updated time
+     */
+    private Date updateTime;
+
+    /**
+     * logical delete
+     */
+    @TableLogic
+    private Integer isDelete;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+}
+```
+3. QuestionBank
+```java
+/**
+ * question bank
+ * @TableName question_bank
+ */
+@TableName(value ="question_bank")
+@Data
+public class QuestionBank implements Serializable {
+    /**
+     * id
+     */
+    @TableId(type = IdType.ASSIGN_ID)
+    private Long id;
+
+    /**
+     * question bank title
+     */
+    private String title;
+
+    /**
+     * question bank description
+     */
+    private String description;
+
+    /**
+     * question bank picture
+     */
+    private String picture;
+
+    /**
+     * the creator id
+     */
+    private Long userId;
+
+    /**
+     * last edited time
+     */
+    private Date editTime;
+
+    /**
+     * created time
+     */
+    private Date createTime;
+
+    /**
+     * last updated time
+     */
+    private Date updateTime;
+
+    /**
+     * logical delete
+     */
+    @TableLogic
+    private Integer isDelete;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+}
+```
+4. QuestionBankQuestion
+```java
+/**
+ * question and question bank relationship
+ * @TableName question_question_bank
+ */
+@TableName(value ="question_question_bank")
+@Data
+public class QuestionBankQuestion implements Serializable {
+    /**
+     * id
+     */
+    @TableId(type = IdType.AUTO)
+    private Long id;
+
+    /**
+     * question bank id
+     */
+    private Long questionBankId;
+
+    /**
+     * question id
+     */
+    private Long questionId;
+
+    /**
+     * creator id
+     */
+    private Long userId;
+
+    /**
+     * created time
+     */
+    private Date createTime;
+
+    /**
+     * last updated time
+     */
+    private Date updateTime;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+}
+```
+
+> DTO Data Transfer Object Classes
+
+For each table, we should define the related `CRUD` request classes
+1. User
+2. Question
+3. QuestionBank
+4. QuestionBankQuestion
+
+![](./img/DTOOverview.PNG)
+
+**Note**
+1. Edit and updata request are different, the `update API` is designed for `Administrator`, able to access more data fields, while `edit API` is designed for `users`.
+2. For `QuestionBankQuestion` table, the `edit request` is not really needed, so we omit the edit request
+
+> VO View Object Classes
+
+For the purpose of data masking, we need to define view object classes for each class. With a view object class, we can achieve the information masking, so that some sensitive message will not be sent to frontend side.
+
+We can also implement two methods for converting the view object to entity class object:
+1. objToVo
+2. voToObj
+
+#### Controller

@@ -33,7 +33,7 @@ public interface QuestionBankQuestionService extends IService<QuestionBankQuesti
      * @param questionBankQuestionQueryRequest
      * @return
      */
-    Page<QuestionBankQuestion> searchFromEs(QuestionBankQuestionQueryRequest questionBankQuestionQueryRequest);
+    //Page<QuestionBankQuestion> searchFromEs(QuestionBankQuestionQueryRequest questionBankQuestionQueryRequest);
 
     /**
      * get question bank view object class

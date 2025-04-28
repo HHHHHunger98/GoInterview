@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 用户查询请求
+ * User query request
  *
  * @author <a href="https://github.com/hhhhhunger98">wzh</a>
  * 
@@ -20,27 +20,22 @@ public class UserQueryRequest extends PageRequest implements Serializable {
     private Long id;
 
     /**
-     * 开放平台id
+     *  Third party id: subId
      */
-    private String unionId;
+    private String subId;
 
     /**
-     * 公众号openId
-     */
-    private String mpOpenId;
-
-    /**
-     * 用户昵称
+     * User name
      */
     private String userName;
 
     /**
-     * 简介
+     * Profile
      */
     private String userProfile;
 
     /**
-     * 用户角色：user/admin/ban
+     * User role：user/admin/ban
      */
     private String userRole;
 

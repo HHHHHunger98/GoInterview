@@ -209,15 +209,15 @@ public class QuestionBankController {
      * @param request
      * @return
      */
-    @PostMapping("/search/page/vo")
-    public BaseResponse<Page<QuestionBankVO>> searchQuestionBankVOByPage(@RequestBody QuestionBankQueryRequest questionBankQueryRequest,
-            HttpServletRequest request) {
-        long size = questionBankQueryRequest.getPageSize();
-        // Restrict crawlers
-        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
-        Page<QuestionBank> questionBankPage = questionBankService.searchFromEs(questionBankQueryRequest);
-        return ResultUtils.success(questionBankService.getQuestionBankVOPage(questionBankPage, request));
-    }
+//    @PostMapping("/search/page/vo")
+//    public BaseResponse<Page<QuestionBankVO>> searchQuestionBankVOByPage(@RequestBody QuestionBankQueryRequest questionBankQueryRequest,
+//            HttpServletRequest request) {
+//        long size = questionBankQueryRequest.getPageSize();
+//        // Restrict crawlers
+//        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
+//        Page<QuestionBank> questionBankPage = questionBankService.searchFromEs(questionBankQueryRequest);
+//        return ResultUtils.success(questionBankService.getQuestionBankVOPage(questionBankPage, request));
+//    }
 
     /**
      * Edit(User)

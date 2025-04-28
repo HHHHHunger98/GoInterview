@@ -4,7 +4,7 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 用户登录请求
+ * User login request
  *
  * @author <a href="https://github.com/hhhhhunger98">wzh</a>
  * 

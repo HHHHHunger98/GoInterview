@@ -215,15 +215,15 @@ public class QuestionController {
      * @param request
      * @return
      */
-    @PostMapping("/search/page/vo")
-    public BaseResponse<Page<QuestionVO>> searchQuestionVOByPage(@RequestBody QuestionQueryRequest questionQueryRequest,
-            HttpServletRequest request) {
-        long size = questionQueryRequest.getPageSize();
-        // Restrict crawlers
-        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
-        Page<Question> questionPage = questionService.searchFromEs(questionQueryRequest);
-        return ResultUtils.success(questionService.getQuestionVOPage(questionPage, request));
-    }
+//    @PostMapping("/search/page/vo")
+//    public BaseResponse<Page<QuestionVO>> searchQuestionVOByPage(@RequestBody QuestionQueryRequest questionQueryRequest,
+//            HttpServletRequest request) {
+//        long size = questionQueryRequest.getPageSize();
+//        // Restrict crawlers
+//        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
+//        Page<Question> questionPage = questionService.searchFromEs(questionQueryRequest);
+//        return ResultUtils.success(questionService.getQuestionVOPage(questionPage, request));
+//    }
 
     /**
      * Edit question (User)

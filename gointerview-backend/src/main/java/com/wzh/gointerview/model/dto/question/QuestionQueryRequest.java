@@ -22,6 +22,11 @@ public class QuestionQueryRequest extends PageRequest implements Serializable {
     private Long id;
 
     /**
+     * query exclude by question id
+     */
+    private Long notId;
+
+    /**
      * query by question title
      */
     private String title;

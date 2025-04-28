@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * Question API
@@ -189,13 +188,13 @@ public class QuestionBankQuestionController {
      * @param request
      * @return
      */
-    @PostMapping("/search/page/vo")
-    public BaseResponse<Page<QuestionBankQuestionVO>> searchQuestionBankQuestionVOByPage(@RequestBody QuestionBankQuestionQueryRequest questionBankQuestionQueryRequest,
-            HttpServletRequest request) {
-        long size = questionBankQuestionQueryRequest.getPageSize();
-        // Restrict crawlers
-        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
-        Page<QuestionBankQuestion> questionBankQuestionPage = questionBankQuestionService.searchFromEs(questionBankQuestionQueryRequest);
-        return ResultUtils.success(questionBankQuestionService.getQuestionBankQuestionVOPage(questionBankQuestionPage, request));
-    }
+//    @PostMapping("/search/page/vo")
+//    public BaseResponse<Page<QuestionBankQuestionVO>> searchQuestionBankQuestionVOByPage(@RequestBody QuestionBankQuestionQueryRequest questionBankQuestionQueryRequest,
+//            HttpServletRequest request) {
+//        long size = questionBankQuestionQueryRequest.getPageSize();
+//        // Restrict crawlers
+//        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
+//        Page<QuestionBankQuestion> questionBankQuestionPage = questionBankQuestionService.searchFromEs(questionBankQuestionQueryRequest);
+//        return ResultUtils.success(questionBankQuestionService.getQuestionBankQuestionVOPage(questionBankQuestionPage, request));
+//    }
 }
